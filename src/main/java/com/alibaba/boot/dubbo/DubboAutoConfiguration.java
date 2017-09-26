@@ -1,5 +1,6 @@
 package com.alibaba.boot.dubbo;
 
+import com.alibaba.dubbo.config.MonitorConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -51,6 +52,14 @@ public class DubboAutoConfiguration {
     RegistryConfig registryConfig = new RegistryConfig();
     registryConfig.setAddress(this.properties.getRegistry());
     return registryConfig;
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public MonitorConfig dubboMonitorConfig() {
+    MonitorConfig monitorConfig = new MonitorConfig();
+    monitorConfig.setProtocol (this.properties.getMonitor());
+    return monitorConfig;
   }
 
   @Bean

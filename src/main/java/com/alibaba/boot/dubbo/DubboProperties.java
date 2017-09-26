@@ -42,6 +42,8 @@ public class DubboProperties {
    */
   private String group = "";
 
+  private String monitor = "";
+
   public String getAppname() {
     return this.appname;
   }
@@ -98,10 +100,18 @@ public class DubboProperties {
     this.group = group;
   }
 
+  public String getMonitor() {
+    return monitor;
+  }
+
+  public void setMonitor(String monitor) {
+    this.monitor = monitor;
+  }
+
   @Override
   public String toString() {
     return "DubboProperties [appname=" + this.appname + ", registry=" + this.registry
         + ", protocol=" + this.protocol + ", port=" + this.port + ", threads=" + this.threads
-        + ", version=" + this.version + ", group=" + this.group + "]";
+        + ", version=" + this.version + ", group=" + this.group + ", monitor=" + this.monitor + "]";
   }
 }
